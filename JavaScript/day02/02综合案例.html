@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// 简易ATM取款机
+
+        let money = 10000000
+
+        while(1){
+           let num = +prompt(`
+            请选择您的操作：
+            1、取款
+            2、存款
+            3、查询余额
+            4、退出
+            `)
+
+            if(num === 4){
+                document.write('您的余额为xxx元')
+                break
+            }else if(num === 1){
+                let qu = +prompt('请输入您的取款金额：')
+                money -= qu
+                // alert(money)
+            }else if(num === 2){
+            let cun = +prompt('请输入您的存款金额：')
+            money += cun
+            // alert(money)
+            }else if (num === 3){
+                // 查看余额
+                alert(`您的余额为${money}`)
+            }else {
+                alert('请输入规定内容')
+            }
+          
+        }
+    </script>
+</body>
+</html>
