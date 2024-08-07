@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 算法：选择排序法
+        let arr = [10,8,11,20,5]
+        // 循环嵌套的方式，外层循环控制比较次数
+        for(let i = 0; i<arr.length-1; i++){
+            // 定义一个变量 假定这个变量保存的是最小数组元素的index
+            let minIndex = i
+            // 内层循环
+            for(let j = i+1; j < arr.length; j++){
+                // 拿着假定的最小数（arr[minIndex]）,和每一个数（arr[j]）作比较
+                if (arr[j] < arr[minIndex]){
+                    // 如果假定的最小值，比当前这一项还大，那么就保存索引
+                    minIndex = j
+                }
+            }
+            // 交换位置；如果最小的索引不等于原来的索引了，就证明拿到了新的最小值
+            if(minIndex !== i){
+                let temp = arr[minIndex]
+                arr[minIndex] = arr[i]
+                arr[i] = temp
+            }
+        }
+        console.log(arr)
+    </script>
+</body>
+</html>

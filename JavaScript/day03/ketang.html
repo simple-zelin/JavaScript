@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            display: inline-block;
+            border: 2px solid #8df;
+            margin: 3px;
+            padding: 2px;
+            color: rgb(150, 127, 255);
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // for(let i = 1; i <= 5; i++){
+        //     console.log(`第${i}天`)
+        //     for(let j=1; j<=5; j++){
+        //         console.log(`今天记了第${j}个单词`)
+        //     }
+        // }
+
+
+        // 打印几行几列的星星
+        // let row = +prompt('输入您要打印的行数')
+        // let num = +prompt('输入您要一行打印的个数')
+        //     for(let i=1;i<=row;i++){
+        //         for(let j =1;j<=num;j++){
+        //             document.write('*')
+        //         }
+        //         document.write('<br>')
+            // }
+
+        //打印三角形
+            // for(let i = 1; i <= 5; i++){
+            //     console.log(i + '行')
+            //     for(let j = 1; j <= i; j++) {
+            //         document.write('#')
+            //     }
+            //     document.write('<br>')
+            // }
+        
+
+            // 九九乘法表
+            //   for(let i = 1; i <= 9; i++){
+            //     // console.log(i + '行')
+            //     for(let j = 1; j <= i; j++) {
+            //         document.write(`<span>${j}*${i} = ${i*j}</span>`)
+            //     }
+            //     document.write('<br>')
+            // }
+
+
+            // 数组：创建数组=》初始化数组
+            // 求数组的和、平均值
+            // let arr = [2,6,1,7,4]
+            // let sum = 0
+            // let avg
+          
+        
+            // for(let i = 0; i<arr.length; i++){
+            //     sum += arr[i]
+               
+            // }
+    
+            // avg = sum / arr.length
+
+            // max = 
+            // console.log('数组的和是:'+sum,'平均值是：'+avg)
+
+            // 求最大值
+
+            // let arr = [9,6,1,7,4]
+            // let max = arr[0]
+            // for(let i = 1; i<arr.length; i++){
+            //     if(max<arr[i]){
+            //         max = arr[i]
+            //     }
+            // }
+            // console.log(max)
+
+            // 修改or新增数组
+            // let arr = [9,6,1,7,4]
+            // arr[4] = 8
+            // console.log(arr)
+            
+            // 数组元素新增：
+            // 数组.push(新增元素)：加到结尾
+            // let arr = ['xie','ze','lin']
+            // let res = arr.push('hao','shuai')
+            // console.log(arr)
+            // 数组.unshift(新增元素):加到开头
+            // arr.unshift('hao','hei')
+            // console.log(arr)
+
+
+            // 需求：将数组[2,0,6,1,77,0,52,0,25,7]中大于等于10的元素选出来，放入新的数组中
+            // let arr = [2,0,6,1,77,0,52,0,25,7]
+            // let arr1 = []
+            // for(i=0; i<=arr.length; i++){
+            //     if(arr[i]>=10){
+            //         arr1.push(arr[i])
+            //     }
+            // }
+            // console.log(arr1)
+
+            // 数组去0案例
+            // let arr = [2,0,6,1,77,0,52,0,25,7]
+            // let newArr = []
+            // for(i=0; i<=arr.length; i++){
+            //         if(arr[i] !== 0){
+            //             newArr.push(arr[i])
+            //         }
+            //     }
+            //     console.log(newArr)
+
+
+            // 删除元素  数组.pop()===》从数组的最后开始删除，只能删除一个，返回的是被删除的元素，会改变原数组
+            // 删除数组   数组.shift()===》从数组的前面开始删除 只能删除一个，返回值是被删除元素，会改变原数组
+
+
+            // 操作数组：数组.splice()  可以添加也可以删除数组元素，从指定位置删除或添加的数组元素。
+            // 删除；arr.splice(start,deleteCount)-----》（起始位置，删除个数）
+            //新增；arr.splice（0，0，'新增1','新增2'）
+
+
+
+            // 数组排序方法： 数组.sort()
+            // let arr = [12,15,3,7,20,23]
+            // 升序
+            // arr.sort(function(a,b){
+            //     return a-b
+            // })
+            // console.log(arr)
+            //降序
+            // arr.sort(function(a,b){
+            //     return b-a
+            // })
+            // console.log(arr)
+
+    </script>
+</body>
+</html>

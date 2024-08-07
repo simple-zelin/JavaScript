@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 计算两个数之间的和
+    //     let num1 = +prompt ('请输入第一个数字')
+    //     let num2 = +prompt ('请输入第二个数字')
+    //     function getSum(x,y) {
+    //     let sum = 0
+    //     // 找到两个数之间的数
+    //     for (let i = x; i <= y; i++) {
+    //         console.log(i)
+    //         sum += i
+    //     }
+    //     // document.write(sum)
+    //     return sum
+    //     }
+    //   let result =  getSum(num1,num2)
+    //   document.write(result)
+
+
+    // 封装函数 求任意数组中的最大 最小值并返回这个值
+    function fingMaxAndMin(arr){
+        let arrMax = arr[0]
+        let arrMin = arr[0]
+        for(let i = 0; i<arr.length; i++){
+            if(arrMax < arr[i]){
+                arrMax = arr[i]
+            }
+            if(arrMin > arr[i]){
+                arrMin = arr[i]
+            }
+        }
+        return [arrMax,arrMin]
+    }
+    let result = fingMaxAndMin([10,20,12,6,9,3])
+    console.log(result)
+    document.write(`最大值为${result[0]},最小值为${result[1]}`)
+
+
+
+
+
+    // 封装函数，判断数组是否存在某个元素，如果有则返回true，否则返回false
+    // function some(item = 0,arr = []) {
+    //     let flag = false
+    //     for (let i = 0; i < arr.length; i++){
+    //         if (arr[i] === item) {
+    //             flag = true
+    //             return flag
+    //         }
+    //     }
+    //     return flag
+    // }
+    // console.log(some(10,[20,30,10,50,99]))
+
+
+    // 封装函数，查找元素在数组中的索引
+    // function findIndex(item,arr = []) {
+    //    let index = -1
+    //    for (let i = 0; i < arr.length; i++){
+    //     if (item === arr[i]){
+    //         index = 1
+    //         break
+    //     }
+    //    }
+    //    return index
+    // }
+    // let result = findIndex(10,[20,30,10,50,99])
+    // console.log(result)
+    </script>
+</body>
+</html>
+
+
+<!-- 逻辑与==》 左侧为真 返回右侧，左侧为假，返回左侧 -->
+<!-- 逻辑或==》左侧为真，返回左侧，左侧为假，返回右侧 -->
+
+<!-- js中作用域分为两种：全局作用域（script标签或者js文件）、局部作用域（函数作用域和块级作用域）根据作用域不同，变量分为全局变量和局部变量。。函数内部不声明直接赋值的变量当全局变量（不提倡） -->
+ <!-- 具名函数、匿名函数 -->
+
+ <!-- 立即执行函数写法一：(function () {console.log(666)})();  写法二：(function(){console.log('dierzhong')}());   作用：避免全局变量污染，立即执行函数前后都要用分号隔开，不然报错-->
