@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 对象方法的定义--》对象方法的调用
+        let obj = {
+            uname: '谢',
+            age:'18',
+            sing: function(str) {
+                console.log(str + '深圳')
+            },
+            danc: function(){
+                console.log('河源')
+            }
+        }
+          // 对象的调用
+          obj.sing('来自：')
+
+        //   查 =》获取对象的属性值或调用方法
+        // console.log(obj.age)
+        // console.log(obj.danc())
+
+        // 改 =》 对象.属性 = 新值
+        // obj.age = 19
+        // console.log(obj)
+
+        // 增 =》 对象.新属性 = 值
+        // obj.tel = '10086'
+
+        // 删除 
+        // delete obj.age
+        // console.log(obj)
+
+
+        // 遍历对象
+        // for in 遍历对象  for (let 变量 in 对象){  }
+        for (let key in obj) {
+            console.log(obj[key])
+        }
+    </script>
+</body>
+</html>

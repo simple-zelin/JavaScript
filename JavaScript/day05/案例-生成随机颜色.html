@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    需求：该函数接收一个布尔类型参数，表示颜色的格式是十六进制还是rgb格式。
+      ①：如果参数传递的是 true 或者 无参数，则输出 一个随机十六进制的颜色
+      ②：如果参数传递的是 false ，则输出 一个随机rgb的颜色
+    */
+    //  1. 封装函数 
+    function getRandomColor(flag = true) {
+      // 2. 判断用户传入的参数 
+      if (flag) {
+        // 16进制
+        let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+        let str = '#'
+        // 利用循环,生成随机的数组索引,循环六次
+        for (let i = 1; i <= 6; i++) {
+          let random = Math.floor(Math.random() * arr.length)
+          // 根据随机数获取数组对应元素
+          // console.log(arr[random])
+          // 拼接字符串获取 #ffffff 的格式
+          str += arr[random]
+        }
+        // console.log(str)
+        return str
+      } else {
+        // rgb颜色
+        // 利用随机数生成三个数字 0 - 255 之间的
+        let num = Math.floor(Math.random() * 256)
+        let num1 = Math.floor(Math.random() * 256)
+        let num2 = Math.floor(Math.random() * 256)
+        return `rgb(${num},${num1},${num2})`
+      }
+    }
+    let colorrgb = getRandomColor(false) // rgb()
+    console.log(colorrgb)
+    let color16 = getRandomColor(true) // #ffffff
+    console.log(color16)
+    console.log(getRandomColor())
+    // 了解 => API 
+    document.body.style.background = getRandomColor()
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 创建数组
+        // let names = ['小明','小王','张三','李四','王五']
+        // 生成随机数 根据数组的索引
+        //    console.log( Math.floor(Math.random()*(3+1)))
+        //  let random = Math.floor(Math.random()*(3+1))
+        // document.write(names[random])
+
+
+        // 二、程序生成一个1~10之间的一个随机整数，用户输入一个数字，返回猜的是否正确
+        // 1、如果输入数字大于随机数，则提示：'数字大了，继续猜' 2、如果小于则提示'数字小了继续猜' 3、如果等于则'猜对了 程序结束'
+        // 先生成一个随机数0~10
+        let random = Math.floor(Math.random()* 11)
+
+        // 无限循环，让用户猜
+        // while(true) {
+        //     let num = +prompt ('请输入一个数字:')
+        //     if (num > random){
+        //         alert('大了，继续猜')
+                
+        //     }else if(num < random){
+        //         alert('小了，继续猜')
+                
+        //     } else {
+        //         alert('对了')
+        //         break
+        //     }
+        // }
+
+
+        // -----》进阶：只有三次机会
+        let flag = true
+        for(let i = 1; i <= 3; i++){
+            let num = +prompt ('请输入一个0~10之间的数字:')
+            // 用户输入的和随机数作比较
+            if (num > random) {
+                alert('猜大了')
+            }else if(num < random) {
+                alert('猜小了')
+            }else {
+                alert('猜对了')
+                flag = false
+                break
+            }
+        }
+      
+        if(flag){
+            alert('次数用完了')
+        }
+    </script>
+</body>
+</html>
