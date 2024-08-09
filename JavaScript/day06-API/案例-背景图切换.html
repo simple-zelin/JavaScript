@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: url(./06学成在线/uploads/quality01.png) no-repeat 0 0 /cover;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 通过style属性控制body背景图片的随机改变
+        const arr = [
+            './06学成在线/uploads/quality01.png',
+            './06学成在线/uploads/quality02.png',
+            './06学成在线/uploads/quality03.png',
+            './06学成在线/uploads/quality04.png',
+            './06学成在线/uploads/quality05.png',
+            './06学成在线/uploads/quality06.png'
+        ]
+
+        // 获取一个数组索引的随机数
+        const random = Math.floor(Math.random()*arr.length)
+        // 根据索引获取数组元素
+        console.log(arr[random])
+        // 修改body的背景图片 document.body
+        document.body.style.backgroundImage = `url(${arr[random]})`
+    </script>
+</body>
+</html>

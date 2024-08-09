@@ -1,0 +1,36 @@
+DOM
+document.querySelector('css选择器')--》获取一个元素
+document.querySelectorAll('css选择器')--》获取全部元素
+
+
+   // 随机获取一个数组的索引
+    const randomOne = Math.floor(Math.random()*arr.length)
+
+    //  利用类名操作样式  需求: 通过 className属性 的形式设置样式
+    .box{}
+    const box = document.querySelector('div')
+    box.className = 'title box'
+    // 原因: 如果我们要操作很多样式,style就不方便了
+    // 问题: 用新值换旧值
+    // 场景: 获取类名, 但是不多
+
+
+利用classList操作样式
+<body>
+  <div class="nav">文本描述</div>
+  <script>
+    // 需求: 利用 classList 追加 删除 切换类名
+    const div = document.querySelector('div')
+    // 1. 追加类名 => 在原类名的基础上,追加新类名
+    div.classList.add('box')
+    // 2. 删除类名
+    div.classList.remove('nav')
+    // 3. 切换类名 => 有则删除, 没有则添加
+    div.classList.toggle('nav')
+    // 4. 拓展 => 判断是否存在某个类名 => 
+    //    会返回一个布尔值, true 存在类名, false 不存在类名
+    console.log(div.classList.contains('abc')) // false
+    console.log(div.classList.contains('nav')) // true
+    // 注意: 他不会影响已经存在的类名.他是在原来的基础上添加
+  </script>
+</body>
