@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关闭登录案例</title>
+  <style>
+    .pop {
+      display: block;
+      visibility: visible;
+      position: fixed;
+      z-index: 9999;
+      left: 50%;
+      top: 50%;
+      width: 530px;
+      height: 254px;
+      margin-top: -127px;
+      margin-left: -265px;
+      background: url(./images/login.webp) no-repeat;
+    }
+
+    .close {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 40px;
+      height: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="pop">
+    <a href="javascript:;" class="close"></a>
+  </div>
+
+  <script>
+    /*
+    事件源：close
+    事件类型：点击click
+    事件处理函数：隐藏pop
+    */
+//    获取元素
+    const pop = document.querySelector('.pop')
+    const btn = document.querySelector('.close')
+    // 注册事件
+    btn.addEventListener('click',function(){
+        // 隐藏盒子
+        pop.style.display = 'none'
+    })
+  </script>
+</body>
+
+</html>

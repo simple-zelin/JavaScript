@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>轮播图点击切换</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .slider {
+      width: 560px;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .slider-wrapper {
+      width: 100%;
+      height: 320px;
+    }
+
+    .slider-wrapper img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slider-footer {
+      position: relative;
+      height: 80px;
+      padding: 12px 12px 0 12px;
+      background-color: rgb(37, 41, 60);
+    }
+
+    .slider-footer .toggle {
+      display: flex;
+      position: absolute;
+      right: 0;
+      top: 12px;
+    }
+
+    .slider-footer .toggle button {
+      width: 28px;
+      height: 28px;
+      margin-right: 12px;
+      appearance: none;
+      border: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .slider-footer .toggle button:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .slider-footer p {
+      margin: 0;
+      margin-bottom: 10px;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .slider-indicator {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      align-items: center;
+    }
+
+    .slider-indicator li {
+      width: 8px;
+      height: 8px;
+      margin: 4px;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0.4;
+      cursor: pointer;
+    }
+
+    .slider-indicator li.active {
+      width: 12px;
+      height: 12px;
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slider">
+    <div class="slider-wrapper">
+      <img src="./images/slider01.jpg" alt="" />
+    </div>
+    <div class="slider-footer">
+      <p>奔涌吧，后浪！</p>
+      <ul class="slider-indicator">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <div class="toggle">
+        <button class="prev">&lt;</button>
+        <button class="next">&gt;</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    // 1. 初始数据
+    const data = [
+      { url: './images/slider01.jpg', title: '奔涌吧，后浪！', color: 'rgb(37, 41, 60)' },
+      { url: './images/slider02.jpg', title: '开启剑与雪的黑暗传说！', color: 'rgb(43, 35, 26)' },
+      { url: './images/slider03.jpg', title: '八年的怀旧游戏', color: 'rgb(47, 23, 100)' },
+      { url: './images/slider04.jpg', title: '真正的jo厨出现了！', color: 'rgb(36, 31, 33)' },
+      { url: './images/slider05.jpg', title: '让世界通过B站看到东方大国文化', color: 'rgb(58, 91, 216)' },
+      { url: './images/slider06.jpg', title: '快来分享你的寒假日常吧~', color: 'rgb(67, 90, 92)' },
+      { url: './images/slider07.jpg', title: '哔哩哔哩小年YEAH', color: 'rgb(166, 131, 143)' },
+      { url: './images/slider08.jpg', title: '一站式解决你的电脑配置问题！！！', color: 'rgb(53, 29, 25)' },
+    ]
+    // 定义一个计数器
+    let i = 0
+    // 获取元素
+    const img = document.querySelector('.slider-wrapper img')
+    const footer =document.querySelector('.slider-footer')
+    const p = document.querySelector('p')
+    // 右侧按钮
+    const next = document.querySelector('.next')
+    // 左侧按钮
+    const prev = document.querySelector('.prev')
+
+          // 封装一个公共函数 修改页面的内容
+          function toggle() {
+        // 判断计数器的阈值
+        i = (i+data.length)%data.length
+        const obj = data[i]
+        // 修改页面内容
+        img.src = obj.url
+        footer.style.backgroundColor = obj.color
+        p.innerHTML = obj.title
+
+        // 小圆点
+        document.querySelector('.active').classList.remove('active')
+        const li = document.querySelector(`.slider-indicator li:nth-child(${i+1})`)
+        li.classList.add('active')
+    }
+
+    // 绑定右侧事件 注册
+    next.addEventListener('click',function(){
+        i++
+        toggle()
+    })
+    // 绑定左侧事件 注册
+    prev.addEventListener('click',function(){
+        i--
+        toggle()
+    })
+ 
+
+    // 开启定时器 自动轮播
+    let timerId = setInterval(function(){
+        next.click()
+    },1000)
+
+    // 鼠标经过时暂停播放 离开后继续播放
+    // 获取元素slider
+    const slider = document.querySelector('.slider')
+    // 监听函数 经过时关闭定时器
+    slider.addEventListener('mouseenter',function(){
+        clearInterval(timerId)
+    })
+    // 离开后
+    slider.addEventListener('mouseleave',function(){
+        clearInterval(timerId)
+        // 开启定时器
+        timerId = setInterval(function(){
+            next.click()
+        },1000)
+    })
+
+    // 6. 点击小圆点切换图片
+    // 6.1 给所有的小圆点添加点击事件
+    const lis = document.querySelectorAll('.slider-indicator li')
+    for (let index = 0; index < lis.length; index++) {
+      // 添加点击事件
+      lis[index].addEventListener('click', function () {
+        // 6.2 给计数器i重新赋值 
+        i = index
+        toggle()
+      })
+    }
+
+ 
+  </script>
+</body>
+
+</html>
