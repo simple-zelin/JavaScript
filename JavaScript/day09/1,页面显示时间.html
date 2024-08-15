@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: rgb(232, 222, 212);
+            color: rgb(255, 127, 127);
+            width: 500px;
+            height: 500px;
+            font-size: 100px;
+            /* text-align: center; */
+            margin: auto 50%;
+            /* line-height: 500px; */
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+
+    <script>
+        function getDatetime(){
+            const data = new Date()
+
+            const year = data.getFullYear()
+            const month = data.getMonth()
+            const day = data.getDate()
+
+            let h = data.getHours()
+            let m = data.getMinutes()
+            let s = data.getSeconds()
+            h = h<10? '0'+h : h
+            m = m<10 ? '0'+m :m
+            s = s<10? '0'+s : s
+
+            return `${year}年${month+1}月${day}日 <br>${h}:${m}:${s}`
+        }
+        const div = document.querySelector('div')
+        // const result = getDatetime()
+       
+        setInterval(function(){
+            div.innerHTML = getDatetime()
+        },1000)
+    </script>
+</body>
+</html>
