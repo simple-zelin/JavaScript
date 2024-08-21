@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组的实例方法-reduce求和方法</title>
+</head>
+
+<body>
+  <script>
+    // const arr = new Array(2,3)
+    // const arr1 = []
+
+    const arr = [1,2,3,4]
+       // 语法 => arr.reduce(回调函数, 起始值)
+    //  => arr.reduce(function(上一次的值, 当前值){}, 起始值)
+    const sum = arr.reduce(function(prev,item){
+      return prev + item
+    },6)
+    console.log(sum)
+
+
+        // 执行过程
+    // 2. 没有起始值, 则 prev 为数组的第一项(arr[0]), item 从数组的第二项开始(不建议省略起始值)
+    const sum1 = arr.reduce(function (prev, item) {
+      return prev + item
+    })
+    console.log(sum1)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09.案例-计算薪资</title>
+</head>
+
+<body>
+  <script>
+    const arr = [
+      {
+        name: '张三',
+        salary: 10000
+      },
+      {
+        name: '李四',
+        salary: 15000
+      },
+      {
+        name: '王五',
+        salary: 20000
+      }
+    ]
+    // 计算薪资的和 
+    // 这里的起始值必须是0 
+    const salarySum = arr.reduce(function (prev, item) {
+      // 每个人的薪资的和
+      // console.log(item.salary) // 每一个对象
+      return prev + item.salary
+    }, 0)
+    console.log(salarySum)
+
+    // 简化
+    const sum = arr.reduce((prev, { salary }) => prev + salary, 0)
+    console.log(sum)
+
+  </script>
+</body>
+
+</html>

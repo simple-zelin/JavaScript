@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const arr = [7, 1, 2, 3, 4, 5, 6]
+    // 1. find 方法  =>  查找符合条件的第一个元素
+    const result = arr.find(function (item, index) {
+      // item 代表数组每一项
+      // index 代表数组的每一项的索引
+      console.log(item, index)
+      return item > 4
+    })
+    console.log(result)
+
+    // 箭头函数写法 
+    const res = arr.find(item => item > 4)
+    console.log(res)
+    console.log('-------------------------')
+
+    // 2. every 方法 => 查看数组中元素是否都满足条件,如果都满足返回true否则返回false
+    const arr1 = [10, 20, 30, 40, 50]
+    // const res1 = arr1.every(function (item, index) {
+    //   // item 代表数组每一项
+    //   // index 代表数组的每一项的索引
+    //   return item >= 10
+    // })
+    // console.log(res1)
+    const res1 = arr1.every(item => item >= 10)
+    console.log(res1)
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>
