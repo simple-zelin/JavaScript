@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 需求: 使用js完成继承功能
+    // 1. 封装 => 公共属性和方法放在了一个对象中
+    const person = {
+      eyes: 2,
+      eat() {
+        console.log('我会吃~')
+      }
+    }
+    // 创建构造函数
+    function Man(uname) { this.uname = uname }
+    function Women(uname) { this.uname = uname }
+
+    // 2. 继承 => 让Man和Women 继承 person的属性和方法
+    // 原型对象继承
+    Man.prototype = person
+    Women.prototype = person
+
+    // 4. 问题 我们给man构造函数追加一个新的方法 => hejiu
+    Man.prototype.hejiu = function () {
+      console.log('nan=>吨吨吨')
+    }
+    // 3. 验证 让Man和Women 创建的实例对象能不能访问 eyes 和 eat
+    const mc = new Man('马超')
+    mc.hejiu()
+    console.log(mc)
+    const lj = new Women('李白')
+    console.log(lj)
+    lj.hejiu()
+
+  </script>
+</body>
+
+</html>

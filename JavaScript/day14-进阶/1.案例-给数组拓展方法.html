@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+  const arr = [1,2,3]
+   // 需求: 给数组拓展方法最大值方法 求和方法
+    //    放在原型对象上(节省内存)
+  // console.log(Array.prototye)
+  Array.prototype.max = function(){
+    return Math.max(...this)
+  }
+  console.log(arr.max())
+
+  Array.prototype.sum = function(){
+    return this.reduce((prev,item)=>{
+      return prev + item
+    })
+  }
+  console.log(arr.sum())
+  </script>
+</body>
+
+</html>
