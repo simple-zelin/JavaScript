@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const obj = {
+      name: '狗哥'
+    }
+    function fun(sing) {
+      console.log(this, sing)
+    }
+    // fun() 改变 fun函数的this指向,我想让他指向 obj
+    fun.call(obj, '单身情歌')
+    console.log(obj)
+    // 注意: 
+    //   call方法调用函数,并改变this指向
+    //   第一个参数就是需要改变的this指向,其余参数就是原函数的参数
+
+    // 场景: 检测数据类型  typeof  instanceof
+    // console.log(Object.prototype.toString.call(''))
+    // console.log(Object.prototype.toString.call(123))
+    // console.log(Object.prototype.toString.call([]))
+    // console.log(Object.prototype.toString.call({}))
+    const str = Object.prototype.toString.call([])
+    console.log(str) // [object Array]
+    console.log(str.includes('Array'))
+  </script>
+</body>
+
+</html>

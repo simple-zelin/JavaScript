@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const person = {
+      name: '张三',
+      family: {
+        baba: '张巴巴',
+        mama: '张么么'
+      }
+    }
+    // 深拷贝
+    const obj = JSON.parse(JSON.stringify(person))
+    obj.name = '李四'
+    obj.family.baba = '李巴巴'
+    console.log(person, obj)
+    // 注意: JSON数据是不支持 undefined 和 function
+  </script>
+</body>
+
+</html>

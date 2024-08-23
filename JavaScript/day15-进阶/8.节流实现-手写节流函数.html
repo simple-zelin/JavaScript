@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .box {
+      width: 500px;
+      height: 500px;
+      background-color: #ccc;
+      color: #fff;
+      text-align: center;
+      font-size: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script>
+    const box = document.querySelector('.box')
+    let num = 0
+    function mouseMove() {
+      num++
+      box.innerHTML = num
+    }
+    // 手写节流函数
+    // 1. 定义定时器id
+    // 2. 判断之前是否开启了定时器，有就不要重新开启定时器
+    // 3. 如果没有开启则开启定时器，并赋值定时器id
+    // 4. 在定时器中 调用函数，定时器执行完成后清空定时器
+    function throttle(fn, t) {
+      let timerId = null
+      return function () {
+        if (!timerId) {
+          timerId = setTimeout(function () {
+            fn()
+            timerId = null // 将记录定时器id的变量清空
+          }, t)
+        }
+      }
+    }
+    box.addEventListener('mousemove', throttle(mouseMove, 1000))
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 改变this指向
+    const obj = {
+      name: '马超'
+    }
+    function fun(num, x) {
+      console.log(this, num)
+    }
+    // apply方法 会调用函数,并改变this指向
+    //  第一个参数是this指向,第二个参数是数组,数组的每个元素对应原函数的参数
+    fun.apply(obj, [10, 20])
+
+    // 场景 利用数学对象求数组最大值等
+    // Math.max(1, 2, 3)
+    console.log(Math.max.apply(Math, [1, 2, 3]))
+    console.log(Math.min.apply( null, [1, 2, 3]))
+  </script>
+</body>
+
+</html>

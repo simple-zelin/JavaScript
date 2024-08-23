@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>按钮</button>
+  <script>
+    // bind方法: 不调用函数,但是会改变this指向
+    //  第一个参数是this指向,其余参数是原函数的参数
+    //  因为不会立即调用函数,所以会返回一个原函数的拷贝(新函数),这个函数是改变了this指向的
+    // const obj = {
+    //   name: '狗哥'
+    // }
+    // function fun() {
+    //   console.log(this)
+    // }
+    // const fn = fun.bind(obj)
+    // fn()
+
+    // 场景
+    const btn = document.querySelector('button')
+    let num = 3
+    btn.addEventListener('click', function () {
+      // 禁用按钮
+      this.disabled = true
+      // 页面赋值
+      this.innerHTML = `${num}秒后启用`
+      // 定时开启按钮使用
+      const timerId = setInterval(function () {
+        // 修改计数器
+        num--
+        console.log(this)
+        // 定时修改页面内容
+        this.innerHTML = `${num}秒后启用`
+        // 当计数器归零后
+        if (num <= 0) {
+          // 启用按钮
+          this.disabled = false
+          // 清除定时器
+          clearInterval(timerId)
+          // 按钮内容重置
+          this.innerHTML = `按钮`
+          // 计数器重置
+          num = 3
+        }
+      }.bind(btn), 1000)
+    })
+  </script>
+</body>
+
+</html>

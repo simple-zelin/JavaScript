@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 递归: 
+    //    组成: 函数自己调用自己 (在函数内部调用该函数)
+    //    注意: 如果需要结束,要写结束条件,否则会出现 栈溢出错误
+   let num = 0
+   function fn(){
+    num++
+    console.log('我被调用了')
+    if(num>=3){
+      return
+    }
+    fn() //实现了递归
+   }
+   fn()
+   console.log(111)
+  </script>
+</body>
+
+</html>

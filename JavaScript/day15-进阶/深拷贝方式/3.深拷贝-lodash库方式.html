@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="./lodash.min.js"></script>
+  <script>
+    // 深拷贝方式2 => 利用 lodash库完成深拷贝
+    const person = {
+      name: '张三',
+      family: {
+        baba: '张巴巴',
+        mama: '张么么'
+      },
+      hobby: ['抽烟', '喝酒', '烫头']
+    }
+    // console.log(_)
+    const obj = _.cloneDeep(person)
+    obj.name = '李四'
+    obj.family.baba = '李四爸'
+    obj.hobby[2] = '炸街'
+    console.log(person, obj)
+  </script>
+
+</body>
+
+</html>

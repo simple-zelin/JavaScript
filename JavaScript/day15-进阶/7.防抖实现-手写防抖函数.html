@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .box {
+      width: 500px;
+      height: 500px;
+      background-color: #ccc;
+      color: #fff;
+      text-align: center;
+      font-size: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script>
+    // 防抖: 单位时间内频繁触发函数,但是只执行最后一次
+    const box = document.querySelector('.box')
+    let num = 0 
+    function mouseMove(){
+      num++
+      box.innerHTML = num
+    }
+
+    function debounce(fn,t) {
+      let timerId = null
+      return function() {
+        if(timerId) clearTimeout(timerId)
+
+        timerId = setTimeout(function(){
+          fn()
+        },t)
+      }
+    }
+
+    box.addEventListener('mousemove',debounce(mouseMove,500))
+  </script>
+</body>
+
+</html>

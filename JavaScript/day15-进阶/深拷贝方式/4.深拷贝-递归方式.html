@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const person = {
+      name: '张三',
+      family: {
+        baba: '张巴巴',
+        mama: '张么么'
+      },
+      hobby: [1, 2, 3]
+    }
+    // 需求: 利用 递归函数 实现深拷贝(简版)
+    function cloneDeep(old) {
+      // 1. 先判断 old 数据是数组还是对象 Array.isArray(参数) true | false
+      const newObj = Array.isArray(old) ? [] : {}
+      // 2. 核心 => 循环遍历旧数据,给新数据追加
+      for (let k in old) {
+        // k 属性名
+        // old[k] 属性值
+        // 3. 当我们每次循环获取到数据的时候,先判断是不是复杂数据类型
+        // debugger
+        if (typeof old[k] === 'object') {
+          newObj[k] = cloneDeep(old[k])
+        } else {
+          newObj[k] = old[k] //newObj['name'] = '张三'
+        }
+      }
+      return newObj
+    }
+    const obj = cloneDeep(person)
+    obj.name = '李四'
+    obj.family.baba = '李巴巴'
+    obj.hobby[0] = 123
+    console.log(obj, person)
+  </script>
+
+</body>
+
+</html>
